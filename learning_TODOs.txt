@@ -1,0 +1,9 @@
+[] really gen up on:
+
+- ENTRYPOINT
+- WORKINGDIR
+- CMD
+
+[] how to get [docker-compose up] to start an interactive container ready to accept CLI input?
+
+[] how to *really* get to the bottom of the file mode smushing? (I appreciate Docker isn't really for development)

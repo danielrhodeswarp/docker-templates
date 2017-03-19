@@ -1,0 +1,24 @@
+version: '2'
+services:
+  danielrhodeswarp-lamp-headless-php:
+    #poorly doc'd, but (just) 'build' should be a *folder* containing a "Dockerfile"
+    build: ./docker_config/php
+    ports:
+     - "80:80"
+    volumes:
+    - ./php_src:/var/www/html
+    #- /home/daniel/non_distro/projects/development/docker_templates/lamp_no_interactive/php_src:/var/www/html
+    links:
+    - danielrhodeswarp-lamp-headless-mariadb
+  danielrhodeswarp-lamp-headless-mariadb:
+    #    build: ./docker_config/mariadb
+    image: mariadb:latest 
+    environment:
+    - MYSQL_ROOT_PASSWORD=secret
+    #- MYSQL_DATABASE=blah
+    #- MYSQL_USER=blah
+    #- MYSQL_PASSWORD=blah
+    #- MYSQL_ALLOW_EMPTY_PASSWORD=blah
+    #- MYSQL_ONETIME_PASSWORD=blah
+    ports:
+    - "3306:3306"

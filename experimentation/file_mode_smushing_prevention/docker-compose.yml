@@ -1,0 +1,12 @@
+version: '2'
+services:
+  file-mode-smushing-prevention:
+    #poorly doc'd, but (just) 'build' should be a *folder* containing a "Dockerfile"
+    build: ./docker_config/os
+    volumes:
+    - ./shared_into_container:/shared_into_container
+    #- /home/daniel/non_distro/projects/development/docker_templates/lamp_no_interactive/php_src:/var/www/html
+    #tty: true
+    #stdin_open: true
+    #entrypoint: /bin/bash
+    #command: ["true"]

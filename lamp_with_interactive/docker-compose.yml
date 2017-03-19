@@ -1,0 +1,49 @@
+version: '2'
+
+services:
+
+  danielrhodeswarp-lamp-interactive-php-server:
+    #poorly doc'd, but 'build' must be a *folder* containing a "Dockerfile"
+    build: ./docker_config/php/server
+    ports:
+     - "80:80"
+    volumes:
+    - ./php_src:/var/www/html
+
+    links:
+    - danielrhodeswarp-lamp-interactive-mariadb
+
+#  danielrhodeswarp-lamp-interactive-php-interactive:
+#    #poorly doc'd, but 'build' must be a *folder* containing a "Dockerfile"
+#    build:
+#       context: ./docker_config/php/interactive
+#       dockerfile: Dockerfile.php-apache
+#    volumes:
+#    - ./php_src:/var/www/html
+#
+#    links:
+#    - danielrhodeswarp-lamp-interactive-mariadb
+
+##somewhat "loose" this machine (it's 'php -a' interactive shell which is not so useful to us)
+#  danielrhodeswarp-lamp-interactive-php-interactive:
+#   #poorly doc'd, but 'build' must be a *folder* containing a "Dockerfile"
+#    build:
+#      context: ./docker_config/php/interactive
+#      dockerfile: Dockerfile.php-cli
+#    volumes:
+#    - ./php_src:/var/www/html
+#    links:
+#    - danielrhodeswarp-lamp-interactive-mariadb 
+
+  danielrhodeswarp-lamp-interactive-mariadb:
+#  build: ./docker_config/mariadb
+   image: mariadb:latest 
+   environment:
+   - MYSQL_ROOT_PASSWORD=secret
+   #- MYSQL_DATABASE=blah
+   #- MYSQL_USER=blah
+   #- MYSQL_PASSWORD=blah
+   #- MYSQL_ALLOW_EMPTY_PASSWORD=blah
+   #- MYSQL_ONETIME_PASSWORD=blah
+   ports:
+    - "3306:3306"

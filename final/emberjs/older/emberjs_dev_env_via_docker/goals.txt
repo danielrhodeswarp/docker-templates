@@ -1,0 +1,11 @@
+GOALS
+[] all extras (Watchman, PhantomJS) installed
+[] dev web server (and the liveReload thing) and test server running all the time
+
+
+TODO
+[] database or summat for Ember Data
+[] multiple emberjs proj support
+[] user configurable version of node to use
+[] user configurable version of emberjs to use
+[] user configurable port forwarding (or summat on the docker CLI)

@@ -1,0 +1,2 @@
+#!/bin/bash
+docker run -p 8080:4200 -v /home/daniel/non_distro/projects/development/ember_js_via_docker/mounted_in_container:/mounted_in_container -it my-emberjs-app bash

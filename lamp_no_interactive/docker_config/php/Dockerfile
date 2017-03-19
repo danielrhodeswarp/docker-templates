@@ -1,0 +1,9 @@
+FROM php:7.0-apache
+#COPY php_src/ /var/www/html/
+#COPY docker_config/php.ini /usr/local/etc/php/
+
+#install MySQL / MariaDB extension(s) for PHP
+RUN apt-get update && docker-php-ext-install -j$(nproc) pdo pdo_mysql
+
+
+VOLUME ["/var/www/html"]
